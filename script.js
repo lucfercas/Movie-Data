@@ -35,20 +35,72 @@ let movieData = {
   };
 
  console.log(movieData["The Darjeeling Limited"].rating);
+
+//  const movies = Object.values(movieData);
+//  const title = Object.keys(movieData['Fantastic Mr. Fox', 'The Darjeeling Limited', 'The Royal Tenenbaums', 'The Grand Budapest Hotel']);
  
- for (let key of Object.keys(movieData)){
-    let card = document.createElement('div');
-    card.classList.add("card", movieData[key].year, "hide");
+//  function sortMovies(sortMethod) {
+//      switch (sortMethod) {
+//        case 'year':
+//          movies.sort((a, b) => b.year - a.year);
+//          break;
+//        case 'runtime':
+//          movies.sort((a, b) => b.runtime - a.runtime);
+//          break;
+//        case 'rating':
+//          movies.sort((a, b) => b.rating - a.rating);
+//          break;
+//        default:
+//          break;
+//      }
+//  }
 
-    let imgContainer = document.createElement('div');
-    imgContainer.classList.add("img-container");
+// const movies = Object.values(movieData);
+//try to create a var title para los titulos de las pelis. Ejemplo: let title = Object.keys(movieData) y luego usalo en el loop: ${title.find(key => movieData[key] === movie)}
 
-    let image = document.createElement("img");
-    image.setAttribute("src", movieData[key].image);
-    imgContainer.appendChild(image);
-    card.appendChild(imgContainer);
-
-    document.getElementById("films").appendChild(card);
+const movies = Object.values(movieData);
+document.getElementById("films").innerHTML = '';
+ for (const movie of movies) {
+   let Datamovie = document.createElement('div');
+   Datamovie.innerHTML = `<h2>${Object.keys(movieData).find(key => movieData[key] === movie)}</h2><p>Rating: ${movie.rating}</p><p>Runtime: ${movie.runtime}</p><p>Year: ${movie.year}</p><p>Cast: ${movie.cast.join(', ')}</p><p>Plot: ${movie.plot}</p>`;
+   document.getElementById("films").appendChild(Datamovie);
  }
- 
-  
+
+function sortMovies(sortMethod) {
+  const movies = Object.values(movieData);
+  switch (sortMethod) {
+    case 'year':
+      movies.sort((a, b) => b.year - a.year);
+      break;
+    case 'runtime':
+      movies.sort((a, b) => b.runtime - a.runtime);
+      break;
+    case 'rating':
+      movies.sort((a, b) => b.rating - a.rating);
+      break;
+    default:
+      break;
+  }
+  // Clear the movie-info div before adding the sorted movies
+  document.getElementById("films").innerHTML = '';
+  for (const movie of movies) {
+    let Datamovie = document.createElement('div');
+    Datamovie.innerHTML = `<h2>${Object.keys(movieData).find(key => movieData[key] === movie)}</h2><p>Rating: ${movie.rating}</p><p>Runtime: ${movie.runtime}</p><p>Year: ${movie.year}</p><p>Cast: ${movie.cast.join(', ')}</p><p>Plot: ${movie.plot}</p>`;
+    document.getElementById("films").appendChild(Datamovie);
+  }
+}
+
+const ratingButton = document.getElementById("rating");
+ratingButton.addEventListener("click", function() {
+  sortMovies('rating');
+});
+
+const runtimeButton = document.getElementById("runtime");
+runtimeButton.addEventListener("click", function() {
+  sortMovies('runtime');
+});
+
+const yearButton = document.getElementById("year");
+yearButton.addEventListener("click", function() {
+  sortMovies('year');
+});
