@@ -42,20 +42,28 @@ document.getElementById("films").innerHTML = '';
    document.getElementById("films").appendChild(Datamovie);
  }
 
-function sortMovies(sortMethod) {
+let sortMethod = null;
+
+
+function sortMovies(newSortMethod = null) {
+  if (newSortMethod !== null) {
+    sortMethod = newSortMethod;
+  }
   const movies = Object.values(movieData);
-  switch (sortMethod) {
-    case 'year':
-      movies.sort((a, b) => b.year - a.year);
-      break;
-    case 'runtime':
-      movies.sort((a, b) => b.runtime - a.runtime);
-      break;
-    case 'rating':
-      movies.sort((a, b) => b.rating - a.rating);
-      break;
-    default:
-      break;
+  if (sortMethod !== null) {
+    switch (sortMethod) {
+      case 'year':
+        movies.sort((a, b) => b.year - a.year);
+        break;
+      case 'runtime':
+        movies.sort((a, b) => b.runtime - a.runtime);
+        break;
+      case 'rating':
+        movies.sort((a, b) => b.rating - a.rating);
+        break;
+      default:
+        break;
+    }
   }
  
   document.getElementById("films").innerHTML = '';
@@ -107,6 +115,7 @@ form.addEventListener("submit", (event) => {
 
   // Clear the form fields
   form.reset();
-  sortMovies('rating');
+  
+  sortMovies();
   
 });
