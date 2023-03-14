@@ -5,7 +5,6 @@ let movieData = {
       runtime: 151,
       rating: 7.2,
       year: 2007,
-      image: "Darjeeling_Limited.jpeg",
     },
     "The Royal Tenenbaums": {
       plot: "The eccentric members of a dysfunctional family reluctantly gather under the same roof for various reasons",
@@ -13,7 +12,6 @@ let movieData = {
       year: 2001,
       cast: ["Gene Hackman", "Gwnyeth Paltrow", "Anjelica Huston"],
       runtime: 170,
-      image: "Royal_Tenembaums.jpeg",
     },
     "Fantastic Mr. Fox": {
       year: 2009,
@@ -26,7 +24,6 @@ let movieData = {
       ],
       runtime: 147,
       rating: 7.9,
-      image: "Mr_Fox.jpg",
     },
     "The Grand Budapest Hotel": {
       rating: 8.1,
@@ -34,7 +31,6 @@ let movieData = {
       year: 2014,
       plot: "A writer encounters the owner of an aging high-class hotel, who tells him of his early years serving as a lobby boy in the hotel's glorious years under an exceptional concierge.",
       cast: ["Ralph Fiennes", "F. Murray Abraham", "Mathieu Amalric"],
-      image: "Budapest.jpg",
     },
   };
 
