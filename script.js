@@ -34,30 +34,6 @@ let movieData = {
     },
   };
 
- console.log(movieData["The Darjeeling Limited"].rating);
-
-//  const movies = Object.values(movieData);
-//  const title = Object.keys(movieData['Fantastic Mr. Fox', 'The Darjeeling Limited', 'The Royal Tenenbaums', 'The Grand Budapest Hotel']);
- 
-//  function sortMovies(sortMethod) {
-//      switch (sortMethod) {
-//        case 'year':
-//          movies.sort((a, b) => b.year - a.year);
-//          break;
-//        case 'runtime':
-//          movies.sort((a, b) => b.runtime - a.runtime);
-//          break;
-//        case 'rating':
-//          movies.sort((a, b) => b.rating - a.rating);
-//          break;
-//        default:
-//          break;
-//      }
-//  }
-
-// const movies = Object.values(movieData);
-//try to create a var title para los titulos de las pelis. Ejemplo: let title = Object.keys(movieData) y luego usalo en el loop: ${title.find(key => movieData[key] === movie)}
-
 const movies = Object.values(movieData);
 document.getElementById("films").innerHTML = '';
  for (const movie of movies) {
@@ -81,7 +57,7 @@ function sortMovies(sortMethod) {
     default:
       break;
   }
-  // Clear the movie-info div before adding the sorted movies
+ 
   document.getElementById("films").innerHTML = '';
   for (const movie of movies) {
     let Datamovie = document.createElement('div');
@@ -103,4 +79,34 @@ runtimeButton.addEventListener("click", function() {
 const yearButton = document.getElementById("year");
 yearButton.addEventListener("click", function() {
   sortMovies('year');
+});
+
+const form = document.getElementById("add-movie-form");
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  // Get the input values
+  const title = document.getElementById("title").value;
+  const rating = document.getElementById("rating-number").value;
+  const runtime = document.getElementById("runtime-number").value;
+  const year = document.getElementById("year-number").value;
+  const cast = document.getElementById("cast").value.split(",");
+  const plot = document.getElementById("plot").value;
+
+  // Create a new movie object
+  const newMovie = {
+    rating,
+    runtime,
+    year,
+    cast,
+    plot,
+  };
+
+  // Add the new movie object to the movieData object using the title as the key
+  movieData[title] = newMovie;
+
+  // Clear the form fields
+  form.reset();
+  sortMovies('rating');
+  
 });
