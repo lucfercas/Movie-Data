@@ -95,7 +95,7 @@ form.addEventListener("submit", (event) => {
 
   // Get the input values
   const title = document.getElementById("title").value;
-  const rating = document.getElementById("rating-number").value;
+  const rating = parseFloat(document.getElementById("rating-number").value);
   const runtime = document.getElementById("runtime-number").value;
   const year = document.getElementById("year-number").value;
   const cast = document.getElementById("cast").value.split(",");
@@ -115,7 +115,7 @@ form.addEventListener("submit", (event) => {
 
   // Clear the form fields
   form.reset();
-  
+
   sortMovies();
   
 });
