@@ -44,7 +44,6 @@ document.getElementById("films").innerHTML = '';
 
 let sortMethod = null;
 
-
 function sortMovies(newSortMethod = null) {
   if (newSortMethod !== null) {
     sortMethod = newSortMethod;
@@ -73,7 +72,7 @@ function sortMovies(newSortMethod = null) {
     document.getElementById("films").appendChild(Datamovie);
   }
 }
-
+  //Add event listeners to sort buttons
 const ratingButton = document.getElementById("rating");
 ratingButton.addEventListener("click", function() {
   sortMovies('rating');
@@ -117,5 +116,4 @@ form.addEventListener("submit", (event) => {
   form.reset();
 
   sortMovies();
-  
 });
