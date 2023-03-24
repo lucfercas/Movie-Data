@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Data</title>
-    <!-- <script defer src="script.js"></script> -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <main>
@@ -18,22 +19,23 @@
         </nav>
         
         <section id="films"></section>
-    
-        <form id="add-movie-form">
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required>
-            <label for="rating">Rating:</label>
-            <input type="number" id="rating-number" name="rating" step="0.1" required>
-            <label for="runtime">Runtime:</label>
-            <input type="number" id="runtime-number" name="runtime" required>
-            <label for="year">Year:</label>
-            <input type="number" id="year-number" name="year" required>
-            <label for="cast">Cast:</label>
-            <input type="text" id="cast" name="cast" required>
-            <label for="plot">Plot:</label>
-            <textarea id="plot" name="plot" required></textarea>
-            <button type="submit">Add Movie</button>
-        </form>
+        <section class="form-container">
+            <form id="add-movie-form">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+                <label for="rating">Rating:</label>
+                <input type="number" id="rating-number" name="rating" step="0.1" required>
+                <label for="runtime">Runtime:</label>
+                <input type="number" id="runtime-number" name="runtime" required>
+                <label for="year">Year:</label>
+                <input type="number" id="year-number" name="year" required>
+                <label for="cast">Cast:</label>
+                <input type="text" id="cast" name="cast" required>
+                <label for="plot">Plot:</label>
+                <textarea id="plot" name="plot" required></textarea>
+                <button type="submit">Add Movie</button>
+            </form>
+        </section>
       </main>
 </body>
 <script src="script.js"></script>

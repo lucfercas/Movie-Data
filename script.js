@@ -38,7 +38,8 @@ const movies = Object.values(movieData);
 document.getElementById("films").innerHTML = '';
  for (const movie of movies) {
    let Datamovie = document.createElement('div');
-   Datamovie.innerHTML = `<h2>${Object.keys(movieData).find(key => movieData[key] === movie)}</h2><p>Rating: ${movie.rating}</p><p>Runtime: ${movie.runtime}</p><p>Year: ${movie.year}</p><p>Cast: ${movie.cast.join(', ')}</p><p>Plot: ${movie.plot}</p>`;
+   Datamovie.classList.add('movie-card');
+   Datamovie.innerHTML = `<h2 class="movie-title">${Object.keys(movieData).find(key => movieData[key] === movie)}</h2><p>Rating: ${movie.rating}</p><p>Runtime: ${movie.runtime}</p><p>Year: ${movie.year}</p><p>Cast: ${movie.cast.join(', ')}</p><p>Plot: ${movie.plot}</p>`;
    document.getElementById("films").appendChild(Datamovie);
  }
 
@@ -68,22 +69,26 @@ function sortMovies(newSortMethod = null) {
   document.getElementById("films").innerHTML = '';
   for (const movie of movies) {
     let Datamovie = document.createElement('div');
-    Datamovie.innerHTML = `<h2>${Object.keys(movieData).find(key => movieData[key] === movie)}</h2><p>Rating: ${movie.rating}</p><p>Runtime: ${movie.runtime}</p><p>Year: ${movie.year}</p><p>Cast: ${movie.cast.join(', ')}</p><p>Plot: ${movie.plot}</p>`;
+    Datamovie.classList.add('movie-card');
+    Datamovie.innerHTML = `<h2 class="movie-title">${Object.keys(movieData).find(key => movieData[key] === movie)}</h2><p>Rating: ${movie.rating}</p><p>Runtime: ${movie.runtime}</p><p>Year: ${movie.year}</p><p>Cast: ${movie.cast.join(', ')}</p><p>Plot: ${movie.plot}</p>`;
     document.getElementById("films").appendChild(Datamovie);
   }
 }
   //Add event listeners to sort buttons
 const ratingButton = document.getElementById("rating");
+ratingButton.classList.add('sort-button');
 ratingButton.addEventListener("click", function() {
   sortMovies('rating');
 });
 
 const runtimeButton = document.getElementById("runtime");
+runtimeButton.classList.add('sort-button');
 runtimeButton.addEventListener("click", function() {
   sortMovies('runtime');
 });
 
 const yearButton = document.getElementById("year");
+yearButton.classList.add('sort-button')
 yearButton.addEventListener("click", function() {
   sortMovies('year');
 });
