@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@900&display=swap" rel="stylesheet">
+
     <title>Movie Data</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
     <main>
-    <h1>Wes Anderson's Filmography</h1>
+    <h1>WES ANDERSON'S FILMS</h1>
         <nav id="buttons">
             <p>Sort by:</p>
             <button id="rating">rating</button>
@@ -18,8 +23,12 @@
             <button id="year">year</button>
         </nav>
         
-        <section id="films"></section>
+        <section>
+            <div id="films"></div>
+        </section>
+
         <section class="form-container">
+            <h2>Add film:</h2>
             <form id="add-movie-form">
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title" required>
